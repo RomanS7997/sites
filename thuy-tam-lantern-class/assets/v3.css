@@ -571,6 +571,9 @@ html:not(.js) .panel+.panel{margin-top:72px}
   .mr-row{grid-template-columns:92px minmax(0,1fr);grid-template-areas:"img body";gap:0 16px;padding:16px 2px}
   .mr-num,.mr-row .mt-go{display:none}
   .mr-img{aspect-ratio:1/1;align-self:start}
+  /* строка без фото: на телефоне номер слева, как на компьютере, а не пустая колонка под фото */
+  .mr-row:not(:has(.mr-img)){grid-template-columns:34px minmax(0,1fr);grid-template-areas:"num body";gap:0 12px}
+  .mr-row:not(:has(.mr-img)) .mr-num{display:block;font-size:1.1rem;padding-top:3px}
   .mr-name{font-size:1.25rem}
   .mr-body small{font-size:.86rem;line-height:1.5}
   .mr-ask{margin-top:6px}
