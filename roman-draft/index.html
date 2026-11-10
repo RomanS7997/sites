@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web cho tiệm · Roman làm website cho tiệm ở Việt Nam</title>
+<meta name="description" content="Roman, lập trình viên người Nga sống ở Đà Nẵng, làm website cho spa, tiệm nail và doanh nghiệp ở Việt Nam. Làm thử miễn phí, ưng rồi mới trả tiền.">
+<meta property="og:title" content="Web cho tiệm · Roman làm website cho tiệm">
+<meta property="og:description" content="Các dự án ở Hội An, Hà Nội, Đà Nẵng. Làm thử miễn phí, ưng rồi mới trả tiền.">
+<meta property="og:image" content="https://webchotiem.com/img/og.jpg">
+<meta property="og:url" content="https://webchotiem.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf7f2;--paper:#fff;--sand:#f1ebe1;--ink:#1d1a16;--muted:#655e55;--line:rgba(29,26,22,.12);
+  --accent:#145c55;--accent-2:#0f4943;--accent-soft:#e3efec;--zalo:#0068ff;--radius:22px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Be Vietnam Pro",system-ui,sans-serif}
+img{max-width:100%;height:auto;display:block}a{color:inherit}
+svg{width:20px;height:20px;flex:none}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+h1,h2,h3{line-height:1.2;letter-spacing:-.015em;margin:0}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:700}
+.eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+.lead{color:var(--muted);font-size:1.08rem;max-width:640px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;
+  font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-zalo{background:var(--zalo);color:#fff}.btn-zalo:hover{background:#0058d8}
+.btn-ghost{border-color:var(--line);background:var(--paper)}
+/* шапка */
+.top{position:sticky;top:0;z-index:10;background:rgba(250,247,242,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;font-size:1.05rem}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.95rem}
+.top .btn{min-height:42px;padding:0 18px;font-size:.92rem}
+/* первый экран */
+.hero{padding:56px 0 40px}
+.hero-grid{display:grid;gap:28px;align-items:center}
+.who{display:flex;align-items:center;gap:18px}
+.avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:4px solid var(--paper);box-shadow:0 10px 30px rgba(29,26,22,.12)}
+.avatar-txt{display:grid;place-items:center;background:var(--accent);color:#fff;font-size:2.4rem;font-weight:700}
+.who p{margin:0;color:var(--muted);font-size:.95rem}.who strong{display:block;color:var(--ink);font-size:1.1rem}
+.hero h1{font-size:clamp(2.1rem,5.4vw,3.6rem);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.chips{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-size:.92rem;font-weight:500}
+.chips svg{color:var(--accent);width:18px;height:18px}
+.hero-art{position:relative}
+.hero-art img{filter:drop-shadow(0 30px 40px rgba(29,26,22,.12))}
+/* разделы */
+section{scroll-margin-top:72px}
+.sec{padding:72px 0}
+.sec-head{margin-bottom:36px}
+.proj{display:grid;gap:22px;align-items:center;padding:28px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0}
+.proj-media{display:block;border-radius:var(--radius);background:linear-gradient(160deg,var(--sand),#e9e1d3);padding:18px 10px 6px;overflow:hidden}
+.proj-place{display:flex;align-items:center;gap:6px;margin:0 0 6px;color:var(--accent);font-weight:600;font-size:.9rem}
+.proj-place svg{width:17px;height:17px}
+.proj h3{font-size:1.6rem;margin-bottom:10px}
+.proj-body>p{margin:0 0 14px;color:var(--muted)}
+.tags{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:8px}
+.tags li{padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent-2);font-size:.85rem;font-weight:600}
+.link{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--accent);padding-bottom:2px;color:var(--accent-2)}
+.link svg{width:18px;height:18px}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:16px}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.step-n{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;margin-bottom:14px}
+.step h3{font-size:1.2rem;margin-bottom:8px}.step p{margin:0;color:var(--muted)}
+.alt{background:var(--sand)}
+.plans{display:grid;gap:18px}
+.plan{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px}
+.plan.best{border:2px solid var(--accent);box-shadow:0 20px 50px rgba(20,92,85,.12)}
+.badge{position:absolute;top:-14px;left:24px;margin:0;padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff;font-size:.8rem;font-weight:600}
+.plan-price{margin:0;font-size:2.3rem;font-weight:700;line-height:1.1}
+.plan-price span{font-size:.95rem;font-weight:500;color:var(--muted);margin-left:6px}
+.plan h3{font-size:1.15rem;margin:6px 0 16px;color:var(--accent-2)}
+.plan ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.plan li{display:flex;gap:10px;align-items:flex-start}.plan li svg{color:var(--accent);margin-top:3px}
+.note{margin:20px 0 0;color:var(--muted);font-size:.95rem}
+.faq{display:grid;gap:12px;max-width:820px}
+details{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:0 22px}
+summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:600;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--accent)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 18px;color:var(--muted)}
+.contact{background:var(--accent);color:#fff;border-radius:28px;padding:40px 26px;display:grid;gap:22px}
+.contact h2{color:#fff}.contact p{margin:0;color:rgba(255,255,255,.82)}
+.contact .btn-zalo{background:#fff;color:var(--zalo)}
+.contact .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.contact-cta{display:flex;flex-wrap:wrap;gap:12px}
+footer{padding:36px 0 48px;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media (min-width:760px){
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .plans{grid-template-columns:1fr 1fr;align-items:start}
+  .contact{grid-template-columns:1.4fr 1fr;align-items:center;padding:48px}
+  .contact-cta{justify-content:flex-end}
+}
+@media (min-width:960px){
+  .hero{padding:80px 0 56px}
+  .hero-grid{grid-template-columns:1.05fr 1fr}
+  .proj{grid-template-columns:1.25fr 1fr;gap:48px;padding:40px 0}
+  .proj.flip .proj-media{order:2}
+}
+@media (max-width:420px){.top .btn span{display:none}.top .btn{padding:0 14px}.hero-cta .btn{width:100%}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#"><span class="brand-mark">R</span>Web cho tiệm</a>
+  <a class="btn btn-zalo" href="#lien-he" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H11l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 7.8h4.2L8 12.2h4.4M14.6 7.8v4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Nhắn Zalo</span></a>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <div class="who"><div class="avatar avatar-txt" aria-hidden="true">R</div><p><strong>Roman</strong>Lập trình viên · Đà Nẵng</p></div>
+    <h1 style="margin-top:22px">Em là Roman, em làm <em>website cho các tiệm</em> ở Việt Nam</h1>
+    <p class="lead">Em là lập trình viên người Nga, đang làm việc cho một công ty công nghệ lớn ở Nga. Gần đây em chuyển sang
+      sống ở Đà Nẵng và bắt đầu làm website cho spa, tiệm nail và doanh nghiệp ở đây. Dưới đây là những dự án em đã làm ở Việt Nam.</p>
+    <div class="hero-cta">
+      <a class="btn btn-zalo" href="#lien-he" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H11l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 7.8h4.2L8 12.2h4.4M14.6 7.8v4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Nhắn Zalo cho em</a>
+      <a class="btn btn-ghost" href="#du-an">Xem dự án <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <ul class="chips">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Sống ở Đà Nẵng</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 12.2l2.2 2.2 4.2-4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Không cần cọc</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Ưng rồi mới trả tiền</li>
+    </ul>
+  </div>
+  <div class="hero-art"><img src="img/moon-800.webp" srcset="img/moon-800.webp 800w, img/moon.webp 1600w" sizes="(min-width: 960px) 540px, 100vw"
+       alt="Trang web Moon Spa Hà Nội trên máy tính và điện thoại" width="1600" height="994"></div>
+</div></section>
+
+<section class="sec" id="du-an"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Dự án ở Việt Nam</p><h2>Những trang web em đã làm</h2></div>
+  
+    <article class="proj">
+      <a class="proj-media" href="https://sunshinespahoian.com" target="_blank" rel="noopener">
+        <img src="img/sunshine-800.webp" srcset="img/sunshine-800.webp 800w, img/sunshine.webp 1600w"
+             sizes="(min-width: 960px) 620px, 100vw" alt="Trang web SunShine Spa &amp; Nail trên máy tính và điện thoại" width="1600" height="994" loading="lazy">
+      </a>
+      <div class="proj-body">
+        <p class="proj-place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Hội An</p>
+        <h3>SunShine Spa &amp; Nail</h3>
+        <p>Spa massage và làm móng cho khách du lịch. Web 5 thứ tiếng (Việt, Anh, Hàn, Trung, Nga), khách đặt lịch online, lịch hẹn báo ngay về Zalo của chủ tiệm bằng tiếng Việt.</p>
+        <ul class="tags"><li>Logo riêng</li><li>Đặt lịch báo về Zalo</li><li>LINE · WeChat · KakaoTalk</li></ul>
+        <a class="link" href="https://sunshinespahoian.com" target="_blank" rel="noopener">sunshinespahoian.com<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+
+    <article class="proj flip">
+      <a class="proj-media" href="https://moonspahanoi.com" target="_blank" rel="noopener">
+        <img src="img/moon-800.webp" srcset="img/moon-800.webp 800w, img/moon.webp 1600w"
+             sizes="(min-width: 960px) 620px, 100vw" alt="Trang web Moon Spa Hà Nội trên máy tính và điện thoại" width="1600" height="994" loading="lazy">
+      </a>
+      <div class="proj-body">
+        <p class="proj-place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Hà Nội · 2 cơ sở</p>
+        <h3>Moon Spa Hà Nội</h3>
+        <p>Một trang web cho hai cơ sở ở Tây Hồ. Khách chọn cơ sở gần khách sạn ngay khi đặt lịch, xem menu 38 dịch vụ và 20 hình của spa bằng tiếng của họ.</p>
+        <ul class="tags"><li>2 cơ sở</li><li>Menu 38 dịch vụ</li><li>5 thứ tiếng</li></ul>
+        <a class="link" href="https://moonspahanoi.com" target="_blank" rel="noopener">moonspahanoi.com<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <a class="proj-media" href="https://dananghomii.com" target="_blank" rel="noopener">
+        <img src="img/homii-800.webp" srcset="img/homii-800.webp 800w, img/homii.webp 1600w"
+             sizes="(min-width: 960px) 620px, 100vw" alt="Trang web Danang Homii trên máy tính và điện thoại" width="1600" height="994" loading="lazy">
+      </a>
+      <div class="proj-body">
+        <p class="proj-place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Đà Nẵng</p>
+        <h3>Danang Homii</h3>
+        <p>Cho thuê căn hộ dài hạn ở Đà Nẵng: 77 căn hộ với hình, giá và vị trí trên bản đồ, tìm theo khu vực và số phòng, bằng tiếng Anh, Nga và Việt.</p>
+        <ul class="tags"><li>77 căn hộ</li><li>Bản đồ</li><li>Anh · Nga · Việt</li></ul>
+        <a class="link" href="https://dananghomii.com" target="_blank" rel="noopener">dananghomii.com<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+</div></section>
+
+<section class="sec alt" id="cach-lam"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Cách em làm</p><h2>Anh chị không mất gì để xem thử</h2></div>
+  <ol class="steps"><li class="step"><span class="step-n">1</span><h3>Em làm thử miễn phí</h3><p>Em làm trang web cho tiệm bằng hình, dịch vụ và giá thật của tiệm. Anh chị không cần chuẩn bị gì.</p></li>
+<li class="step"><span class="step-n">2</span><h3>Anh chị xem và sửa</h3><p>Xem ngay trên điện thoại. Muốn đổi hình, giá hay chữ nào cứ nhắn Zalo, em sửa tới khi ưng.</p></li>
+<li class="step"><span class="step-n">3</span><h3>Ưng rồi mới trả tiền</h3><p>Không cần cọc. Em gắn địa chỉ web riêng của tiệm và web chạy luôn. Năm sau chỉ 1 triệu.</p></li></ol>
+</div></section>
+
+<section class="sec" id="bang-gia"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Bảng giá</p><h2>Trả 1 lần cho cả năm</h2>
+    <p class="lead">Em lo hết phần kỹ thuật. Từ năm thứ hai chỉ 1 triệu mỗi năm.</p></div>
+  <div class="plans">
+      <div class="plan">
+        
+        <p class="plan-price">3 triệu<span>/ năm đầu</span></p>
+        <h3>Trang web của tiệm</h3>
+        <ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.3L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Địa chỉ web riêng, ví dụ tentiem.com</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.3L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Hình, dịch vụ và bảng giá bằng tiếng Việt, Anh, Hàn, Trung, Nga</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.3L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Nút Zalo, WhatsApp, Facebook, Instagram để khách nhắn thẳng cho tiệm</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.3L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sửa nội dung miễn phí cả năm</span></li></ul>
+      </div>
+
+      <div class="plan best">
+        <p class="badge">Em khuyên gói này</p>
+        <p class="plan-price">5 triệu<span>/ năm đầu</span></p>
+        <h3>Web + đặt lịch + Google</h3>
+        <ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.3L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tất cả của gói 3 triệu</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.3L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Đặt lịch tự động: khách tự chọn dịch vụ, ngày giờ bằng tiếng của họ, lịch hẹn báo ngay về Zalo của anh chị bằng tiếng Việt</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.3L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SEO: khách tìm “spa Hội An”, “nail Đà Nẵng” trên Google dễ thấy tiệm hơn, kể cả khách Hàn, Trung gõ bằng tiếng của họ</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.3L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Khách hỏi ChatGPT hay AI khác nên đi đâu, tiệm cũng dễ được gợi ý hơn</span></li></ul>
+      </div></div>
+  <p class="note">Không cần cọc: em làm xong, anh chị xem và ưng rồi mới chuyển khoản.</p>
+</div></section>
+
+<section class="sec alt" id="hoi-dap"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Hỏi đáp</p><h2>Anh chị hay hỏi</h2></div>
+  <div class="faq"><details><summary>Em làm công ty hay làm cá nhân?</summary><p>Em làm cá nhân, không qua trung gian. Anh chị nói chuyện thẳng với người làm web, sửa gì cũng nhanh.</p></details>
+<details><summary>Có phải trả trước không?</summary><p>Không ạ. Em làm xong, anh chị xem trên điện thoại, ưng rồi mới chuyển khoản. Trả 1 lần cho cả năm, năm sau 1 triệu.</p></details>
+<details><summary>Anh chị cần chuẩn bị gì?</summary><p>Không cần gì nhiều. Em lấy hình và đánh giá của tiệm trên Google. Nếu có bảng giá mới hoặc hình đẹp hơn thì gửi em qua Zalo.</p></details>
+<details><summary>Web có cần cài đặt hay bảo trì không?</summary><p>Không cần cài gì. Web chạy trên hạ tầng Cloudflare mà nhiều công ty lớn dùng, em lo hết phần kỹ thuật.</p></details></div>
+</div></section>
+
+<section class="sec" id="lien-he"><div class="wrap">
+  <div class="contact">
+    <div><h2>Nhắn em xem thử web cho tiệm của anh chị</h2>
+      <p style="margin-top:10px">Gửi tên tiệm qua Zalo, em làm bản thử và gửi lại link để anh chị xem trên điện thoại.</p></div>
+    <div class="contact-cta">
+      <a class="btn btn-zalo" href="#lien-he" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H11l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 7.8h4.2L8 12.2h4.4M14.6 7.8v4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Nhắn Zalo</a>
+      
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Web cho tiệm · Roman</span><span>Đà Nẵng, Việt Nam</span></div></footer>
+</body>
+</html>
