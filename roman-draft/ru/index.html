@@ -34,8 +34,8 @@ h3{font-weight:700}
 /* шапка */
 .top{position:absolute;inset:0 0 auto;z-index:10}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:14px}
-.brand{display:flex;align-items:center;gap:12px;color:var(--on-dark);text-decoration:none;font-weight:700;letter-spacing:.01em}
-.mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#8c5f2b);color:#1b140e;font:600 1.35rem var(--serif)}
+.brand{display:flex;align-items:center;gap:12px;white-space:nowrap;color:var(--on-dark);text-decoration:none;font-weight:700;letter-spacing:.01em}
+.brand-name{font:600 1.7rem/1 var(--serif);letter-spacing:.01em}.brand-sub{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted);padding-left:12px;border-left:1px solid rgba(244,236,225,.25)}
 .nav{display:none;gap:28px}.nav a{color:var(--on-dark-muted);text-decoration:none;font-size:.9rem;font-weight:600}.nav a:hover{color:var(--on-dark)}
 .tools{display:flex;align-items:center;gap:10px}
 .lang{display:flex;align-items:center;gap:2px;padding:4px;border-radius:999px;border:1px solid rgba(244,236,225,.22)}
@@ -167,12 +167,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .about{grid-template-columns:380px 1fr;gap:56px}
 }
 @media (max-width:520px){.zl{font-size:8.6px;line-height:1.38}.zl-top{padding:20px 8px 8px;gap:6px}.zl-top b{font-size:10px}.zl-top small{font-size:8px}.zl-av{width:22px;height:22px;font-size:8px}.zl-day{margin:7px 0 5px;font-size:8px}.zl-msg{margin:0 6px;padding:7px 8px}.dev.r{margin-top:26px}.devices{gap:12px}.ph{border-radius:32px;padding:7px}.ph .in{border-radius:26px}}
-@media (max-width:420px){.top .btn span{display:none}.top .btn{padding:0 14px}.hero-cta .btn{width:100%}.brand-name{font-size:.92rem}}
+@media (max-width:560px){.brand-sub{display:none}}
+@media (max-width:420px){.top .btn span{display:none}.top .btn{padding:0 14px}.hero-cta .btn{width:100%}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="#"><span class="mark">R</span><span class="brand-name">Web cho bạn</span></a>
+  <a class="brand" href="#"><span class="brand-name">Roman</span></a>
   <nav class="nav"><a href="#du-an">Проекты</a><a href="#dat-lich">Запись</a><a href="#bang-gia">Цены</a></nav>
   <div class="tools">
     <div class="lang"><a href="../" class="">VI</a><a href="../ru/" class="on">RU</a></div>
@@ -188,12 +189,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <p class="lead">Я Роман. Работаю разработчиком в крупной технологической компании в России и недавно переехал в Дананг. Здесь делаю сайты для спа, маникюрных салонов и бизнеса: на 5 языках, записи приходят в Zalo, оплата после того, как понравится.</p>
       <div class="hero-cta"><a class="btn btn-zalo" href="#lien-he" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H11l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 7.8h4.2L8 12.2h4.4M14.6 7.8v4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Написать в Zalo</a>
         <a class="btn btn-line" href="#du-an">Смотреть проекты<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-      <div class="me"><img class="avatar" src="../img/roman.jpg" alt="Roman"><p><strong>Roman</strong>Разработчик · Дананг</p></div>
+      <div class="me"><img class="avatar" src="../img/roman.jpg" alt="Roman"><p><strong>Roman</strong>Отвечаю в Zalo в тот же день</p></div>
     </div>
     <div class="hero-art"><img src="../img/collage-760.webp" srcset="../img/collage-760.webp 760w, ../img/collage.webp 1500w"
       sizes="(min-width: 960px) 640px, 100vw" alt="SunShine Spa, Moon Spa, Danang Homii" width="1500" height="1042"></div>
   </div>
-  <div class="stats"><div class="stat"><b>3</b><span>работающих сайта во Вьетнаме</span></div><div class="stat"><b>5</b><span>языков: вьетнамский, английский, корейский, китайский, русский</span></div><div class="stat"><b>0 ₫</b><span>предоплаты, оплата после</span></div><div class="stat"><b>1 млн</b><span>донгов в год со второго года</span></div></div>
+  <div class="stats"><div class="stat"><b>24 ч</b><span>и пробная версия сайта готова</span></div><div class="stat"><b>5</b><span>языков: вьетнамский, английский, корейский, китайский, русский</span></div><div class="stat"><b>0 ₫</b><span>предоплаты, оплата после</span></div><div class="stat"><b>1 млн</b><span>донгов в год со второго года</span></div></div>
 </div></section>
 
 <section class="sec" id="dat-lich"><div class="wrap bk">
@@ -213,14 +214,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 </div></section>
 
 <section class="sec alt" id="du-an"><div class="wrap">
-  <div class="sec-head"><p class="eyebrow">Проекты во Вьетнаме</p><h2>Сайты, которые я сделал</h2></div>
+  <div class="sec-head"><p class="eyebrow">Проекты во Вьетнаме</p><h2>Сайты, которые я сделал</h2><p class="lead">Каждый сайт сделан под салон: его цвета, логотип и фото. Нажмите, чтобы открыть живой сайт.</p></div>
   <div class="projects">
       <article class="proj sunshine">
         <a class="proj-media" href="https://sunshinespahoian.com" target="_blank" rel="noopener"><img src="../img/sunshine-800.webp"
           srcset="../img/sunshine-800.webp 800w, ../img/sunshine.webp 1600w" sizes="(min-width: 960px) 640px, 100vw"
           alt="SunShine Spa &amp; Nail" width="1600" height="994" loading="lazy"></a>
         <div class="proj-body">
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z" fill="currentColor"/></svg>4,9 · 261 отзыв в Google</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z" fill="currentColor"/></svg>Салон: 4,9 · 261 отзыв в Google</span>
           <p class="place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Хойан</p>
           <h3>SunShine Spa &amp; Nail</h3>
           <p>Спа и маникюр для туристов. Сайт на 5 языках, онлайн-запись, записи сразу приходят в Zalo хозяйки по-вьетнамски.</p>
@@ -233,7 +234,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
           srcset="../img/moon-800.webp 800w, ../img/moon.webp 1600w" sizes="(min-width: 960px) 640px, 100vw"
           alt="Moon Spa Hà Nội" width="1600" height="994" loading="lazy"></a>
         <div class="proj-body">
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z" fill="currentColor"/></svg>4,9 · 140 отзывов в Google</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z" fill="currentColor"/></svg>Салон: 4,9 · 140 отзывов в Google</span>
           <p class="place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Ханой · 2 салона</p>
           <h3>Moon Spa Hà Nội</h3>
           <p>Один сайт на два салона в Тэйхо. Гость выбирает салон поближе к отелю прямо при записи, видит меню из 38 услуг и 20 фото на своём языке.</p>
@@ -288,6 +289,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <div class="final-cta"><a class="btn btn-zalo" href="#lien-he" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H11l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 7.8h4.2L8 12.2h4.4M14.6 7.8v4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Написать в Zalo</a></div></div>
 </div></section>
 </main>
-<footer><div class="wrap"><span>© 2026 Web cho bạn · Roman</span><span>Дананг, Вьетнам</span></div></footer>
+<footer><div class="wrap"><span>© 2026 Roman · webchoban.com</span><span>Дананг, Вьетнам</span></div></footer>
 </body>
 </html>
