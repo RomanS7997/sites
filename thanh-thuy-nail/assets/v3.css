@@ -243,6 +243,9 @@ html:not(.js) .panel+.panel{margin-top:72px}
   .panel-img{grid-row:span 2;aspect-ratio:3/4;border-radius:999px 999px 14px 14px}
   .panel-title{margin:0;align-self:end;font-size:1.7rem}
   .panel-desc{margin:0;align-self:start;font-size:.9rem;line-height:1.6}
+  /* у категории нет фото: название на всю ширину, а не в узкой колонке фото (10.11, «Маникюр и педикюр» в 3 строки) */
+  .panel-media.no-img{display:block}
+  .panel-media.no-img .panel-desc{margin-top:8px}
 }
 
 .mt,.ml{border-top:1px solid var(--ink)}
@@ -874,3 +877,9 @@ html:not(.js) .panel+.panel{margin-top:72px}
 .visit-title-top{margin:0 0 8px}
 .visit-branch + .visit-branch{margin-top:56px}
 .branch-name{font-family:var(--font-head);font-weight:var(--head-weight,600);font-size:clamp(1.35rem,3.2vw,1.7rem);margin:0 0 14px;color:var(--gold)}
+
+/* ---------- «Напишите нам» вместо формы записи (сайты без онлайн-записи) ---------- */
+.book-msg .book-intro{max-width:720px;margin:0 auto;text-align:center}
+.book-msg .book-sub{margin-left:auto;margin-right:auto}
+.book-msg .contact-grid{margin:28px auto 0;max-width:440px}
+@media (min-width:700px){.book-msg .contact-grid{display:flex;flex-wrap:wrap;justify-content:center;max-width:none}.book-msg .contact-grid .btn{min-width:180px}}
