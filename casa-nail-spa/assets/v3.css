@@ -571,6 +571,9 @@ html:not(.js) .panel+.panel{margin-top:72px}
   .mr-row{grid-template-columns:92px minmax(0,1fr);grid-template-areas:"img body";gap:0 16px;padding:16px 2px}
   .mr-num,.mr-row .mt-go{display:none}
   .mr-img{aspect-ratio:1/1;align-self:start}
+  /* строка без фото: на телефоне номер слева, как на компьютере, а не пустая колонка под фото */
+  .mr-row:not(:has(.mr-img)){grid-template-columns:34px minmax(0,1fr);grid-template-areas:"num body";gap:0 12px}
+  .mr-row:not(:has(.mr-img)) .mr-num{display:block;font-size:1.1rem;padding-top:3px}
   .mr-name{font-size:1.25rem}
   .mr-body small{font-size:.86rem;line-height:1.5}
   .mr-ask{margin-top:6px}
@@ -865,3 +868,8 @@ html:not(.js) .panel+.panel{margin-top:72px}
 .qr-name{display:inline-flex;align-items:center;gap:6px;font-size:.9rem;font-weight:600;line-height:1.2}
 .qr-name .ic{width:18px;height:18px;flex:none}
 @media (max-width:520px){.qr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* несколько филиалов: заголовок раздела один, у каждого филиала свой блок с картой */
+.visit-title-top{margin:0 0 8px}
+.visit-branch + .visit-branch{margin-top:56px}
+.branch-name{font-family:var(--font-head);font-weight:var(--head-weight,600);font-size:clamp(1.35rem,3.2vw,1.7rem);margin:0 0 14px;color:var(--gold)}

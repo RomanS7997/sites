@@ -138,7 +138,9 @@
     function payload() {
       var opt = serviceEl.options[serviceEl.selectedIndex];
       var people = form.querySelector('input[name="people"]:checked');
+      var bEl = $("#f-branch"), bOpt = bEl ? bEl.options[bEl.selectedIndex] : null;
       return {
+        branch: bOpt && bOpt.value ? bOpt.textContent.trim() : "", branch_vi: bOpt && bOpt.value ? bOpt.dataset.vi || "" : "",
         name: F.name.value.trim(), contact: F.contact.value.trim(),
         service: opt && opt.value ? opt.textContent.trim() : "", service_vi: opt ? opt.dataset.vi || "" : "",
         date: dateEl.value, time: timeEl.value, people: people ? +people.value : 1,
@@ -149,6 +151,7 @@
       if (!D.wa) return null;
       var d = p.date.split("-"), wd = weekdayOf(p.date);
       var text = "Xin chào " + D.name + "! Tôi muốn đặt lịch:\n" +
+        (p.branch_vi ? "- Cơ sở: " + p.branch_vi + "\n" : "") +
         (p.service_vi ? "- Dịch vụ: " + p.service_vi + "\n" : "") +
         "- Thời gian: " + p.time + ", " + D.days_vi[wd] + " " + d[2] + "/" + d[1] + "\n" +
         (p.people > 1 ? "- Số khách: " + p.people + "\n" : "") +
@@ -157,7 +160,7 @@
     }
     function showDone(p) {
       var d = p.date.split("-");
-      $("#done-summary").textContent = [p.service, D.days[weekdayOf(p.date)] + " " + d[2] + "/" + d[1], p.time].filter(Boolean).join(" · ");
+      $("#done-summary").textContent = [p.branch ? p.branch.split(" · ")[0] : "", p.service, D.days[weekdayOf(p.date)] + " " + d[2] + "/" + d[1], p.time].filter(Boolean).join(" · ");
       form.hidden = true; done.hidden = false; done.focus();
     }
     function showError(p) {
@@ -172,7 +175,7 @@
       errBox.hidden = true;
       var p = payload(), firstBad = null;
       [["name", p.name.length > 0], ["contact", /\d{6,}/.test(p.contact.replace(/\D/g, "")) || /@/.test(p.contact)],
-       ["date", !!p.date], ["time", !!p.time]].forEach(function (pair) {
+       ["date", !!p.date], ["time", !!p.time]].concat($("#f-branch") ? [["branch", !!p.branch]] : []).forEach(function (pair) {
         var el = F[pair[0]]; setInvalid(el, !pair[1]);
         if (!pair[1] && !firstBad) firstBad = el;
       });
@@ -183,7 +186,12 @@
       label.textContent = T.f_sending;
       function finish() { submitBtn.disabled = false; label.textContent = old; }
 
-      if (D.demo) { setTimeout(function () { finish(); showDone(p); }, 700); return; }
+      if (D.demo) {  // 14.11: пробный сайт не шлёт заявку в бота; раньше показывал «готово», и гость терялся. Теперь заявка уходит в WhatsApp салона
+        finish();
+        var wa = waLink(p);
+        if (wa) { if (!window.open(wa, "_blank", "noopener")) location.href = wa; } else { showError(p); }
+        return;
+      }
       fetch(D.api, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(p) })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return r.ok && j.ok; }); })
         .catch(function () { return false; })
