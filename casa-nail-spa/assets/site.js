@@ -94,15 +94,91 @@
     if (row) row.classList.add("today");
   })();
 
+  /* ---------- жильё: бронь с датами, запрос уходит хозяину в WhatsApp готовым текстом ---------- */
+  function initStay(form) {
+    var S = D.stay, inEl = $("#f-date"), outEl = $("#f-date2"), roomEl = $("#f-service");
+    var F = form.elements, done = $("#book-done");
+    function setBad(el, bad) { el.closest(".field").classList.toggle("invalid", bad); el.setAttribute("aria-invalid", bad ? "true" : "false"); }
+    function nightsOf(a, b) { return Math.round((new Date(b + "T12:00:00Z") - new Date(a + "T12:00:00Z")) / 864e5); }
+    function dmy(iso) { var d = iso.split("-"); return d[2] + "/" + d[1] + "/" + d[0]; }
+    function dm(iso) { var d = iso.split("-"); return d[2] + "/" + d[1]; }
+    // форма слова по числу: одна форма (vi, ko, zh), две (en), три (ru)
+    function word(n, forms) {
+      if (forms.length === 1) return forms[0];
+      if (forms.length === 2) return n === 1 ? forms[0] : forms[1];
+      var n10 = n % 10, n100 = n % 100;
+      if (n10 === 1 && n100 !== 11) return forms[0];
+      return (n10 >= 2 && n10 <= 4 && !(n100 >= 12 && n100 <= 14)) ? forms[1] : forms[2];
+    }
+    // выезд всегда позже заезда; по умолчанию завтра на две ночи
+    function syncOut() {
+      if (!inEl.value) return;
+      outEl.min = addDays(inEl.value, 1);
+      outEl.max = addDays(inEl.value, 90);
+      if (!outEl.value || outEl.value <= inEl.value) outEl.value = addDays(inEl.value, 1);
+    }
+    inEl.min = todayIso;
+    inEl.max = addDays(todayIso, 540);
+    inEl.value = addDays(todayIso, 1);
+    outEl.value = addDays(todayIso, 3);
+    syncOut();
+    inEl.addEventListener("change", syncOut);
+    form.addEventListener("input", function (e) { if (e.target.closest(".field.invalid")) setBad(e.target, false); });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = F.name.value.trim(), a = inEl.value, b = outEl.value;
+      var datesOk = !!a && !!b && b > a;
+      setBad(F.name, !name); setBad(inEl, !a); setBad(outEl, !datesOk);
+      if (!name) { F.name.focus(); return; }
+      if (!a) { inEl.focus(); return; }
+      if (!datesOk) { outEl.focus(); return; }
+      var opt = roomEl.options[roomEl.selectedIndex];
+      var room = opt && opt.value ? opt.textContent.trim() : "";
+      var roomEn = opt && opt.value ? (opt.dataset.en || room) : "";
+      var pe = form.querySelector('input[name="people"]:checked'), people = pe ? +pe.value : 2;
+      var n = nightsOf(a, b), note = F.note.value.trim();
+      // по-английски (гость видит, что отправляет) и строка по-вьетнамски для хозяина
+      var text = "Hello " + D.name + "! I would like to book directly:\n" +
+        (roomEn ? "- Room: " + roomEn + "\n" : "") +
+        "- Check-in: " + dmy(a) + "\n" +
+        "- Check-out: " + dmy(b) + " (" + n + (n === 1 ? " night" : " nights") + ")\n" +
+        "- Guests: " + people + "\n" +
+        "- Name: " + name + "\n" +
+        (note ? "- Note: " + note + "\n" : "") +
+        "\n(Khách đặt phòng trực tiếp từ website: " + n + " đêm, " + people + " khách)";
+      var url = "https://wa.me/" + D.wa + "?text=" + encodeURIComponent(text);
+      $("#done-summary").textContent = [room, dm(a) + " – " + dm(b), n + " " + word(n, S.nights), people + " " + word(people, S.guests)].filter(Boolean).join(" · ");
+      var again = $("#done-wa");
+      if (again) again.href = url;
+      form.hidden = true; done.hidden = false; done.focus();
+      var win = window.open(url, "_blank");
+      if (!win) location.href = url;
+    });
+
+    // «Забронировать» у номера в списке подставляет этот номер в форму
+    $all("[data-service]").forEach(function (link) {
+      link.addEventListener("click", function () { roomEl.value = link.dataset.service; });
+    });
+    $("#book-again").addEventListener("click", function () { done.hidden = true; form.hidden = false; });
+  }
+
   /* ---------- запись ---------- */
   var form = $("#book-form");
+  if (form && D.stay) { initStay(form); form = null; }
   if (form) {
     var dateEl = $("#f-date"), timeEl = $("#f-time"), serviceEl = $("#f-service");
     var F = form.elements, submitBtn = $("#f-submit"), errBox = $("#form-error"), done = $("#book-done");
     var lead = 30; // нельзя записаться ближе чем за 30 минут
 
+    var branchEl = $("#f-branch");
+    // если выбран салон со своими часами, время записи считаем по нему
+    function bookHoursOn(wd) {
+      var bh = branchEl && branchEl.value && D.branch_hours && D.branch_hours[branchEl.value];
+      return bh ? bh[DAYS[wd]] || null : hoursOn(wd);
+    }
     function slotsFor(iso) {
-      var h = hoursOn(weekdayOf(iso));
+      var h = bookHoursOn(weekdayOf(iso));
       if (!h) return [];
       if (h[0] === "00:00" && h[1] === "24:00") h = ["08:00", "23:00"]; // круглосуточно: запись на разумные часы
       var start = toMin(h[0]), end = toMin(h[1]) - 30, out = [];
@@ -131,6 +207,7 @@
     dateEl.value = firstDay;
     fillTimes();
     dateEl.addEventListener("change", fillTimes);
+    if (branchEl) branchEl.addEventListener("change", fillTimes);
 
     function setInvalid(el, bad) { el.closest(".field").classList.toggle("invalid", bad); el.setAttribute("aria-invalid", bad ? "true" : "false"); }
     form.addEventListener("input", function (e) { if (e.target.closest(".field.invalid")) setInvalid(e.target, false); });

@@ -65,7 +65,8 @@ p{margin:0;text-wrap:pretty}
 .ic.g .g1{fill:#4285f4}.ic.g .g2{fill:#34a853}.ic.g .g3{fill:#fbbc05}.ic.g .g4{fill:#ea4335}
 .stars{display:inline-flex;gap:3px;color:var(--gold)}
 .stars svg{width:17px;height:17px;fill:currentColor;stroke:none}
-.stars .st.off{opacity:.3}
+/* пустая звезда: класс st-off, а не off — .off занят карточкой акций и рисовал вместо звезды пустую плашку (08.11) */
+.stars .st.st-off{opacity:.3}
 .stars.xs svg{width:13px;height:13px}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;min-height:52px;padding:0 1.7rem;border-radius:999px;
@@ -242,6 +243,9 @@ html:not(.js) .panel+.panel{margin-top:72px}
   .panel-img{grid-row:span 2;aspect-ratio:3/4;border-radius:999px 999px 14px 14px}
   .panel-title{margin:0;align-self:end;font-size:1.7rem}
   .panel-desc{margin:0;align-self:start;font-size:.9rem;line-height:1.6}
+  /* у категории нет фото: название на всю ширину, а не в узкой колонке фото (10.11, «Маникюр и педикюр» в 3 строки) */
+  .panel-media.no-img{display:block}
+  .panel-media.no-img .panel-desc{margin-top:8px}
 }
 
 .mt,.ml{border-top:1px solid var(--ink)}
@@ -873,3 +877,12 @@ html:not(.js) .panel+.panel{margin-top:72px}
 .visit-title-top{margin:0 0 8px}
 .visit-branch + .visit-branch{margin-top:56px}
 .branch-name{font-family:var(--font-head);font-weight:var(--head-weight,600);font-size:clamp(1.35rem,3.2vw,1.7rem);margin:0 0 14px;color:var(--gold)}
+
+/* ---------- «Напишите нам» вместо формы записи (сайты без онлайн-записи) ---------- */
+.book-msg .book-intro{max-width:720px;margin:0 auto;text-align:center}
+.book-msg .book-sub{margin-left:auto;margin-right:auto}
+.book-msg .contact-grid{margin:28px auto 0;max-width:440px}
+@media (min-width:700px){.book-msg .contact-grid{display:flex;flex-wrap:wrap;justify-content:center;max-width:none}.book-msg .contact-grid .btn{min-width:180px}}
+
+/* шесть преимуществ (жильё): три в ряд, а не 4 + 2 с дырой */
+@media (min-width:760px){.feat-grid.n6{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1080px;margin-inline:auto}}
