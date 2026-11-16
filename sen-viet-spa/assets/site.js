@@ -193,7 +193,12 @@
       label.textContent = T.f_sending;
       function finish() { submitBtn.disabled = false; label.textContent = old; }
 
-      if (D.demo) { setTimeout(function () { finish(); showDone(p); }, 700); return; }
+      if (D.demo) {  // 14.11: пробный сайт не шлёт заявку в бота; раньше показывал «готово», и гость терялся. Теперь заявка уходит в WhatsApp салона
+        finish();
+        var wa = waLink(p);
+        if (wa) { if (!window.open(wa, "_blank", "noopener")) location.href = wa; } else { showError(p); }
+        return;
+      }
       fetch(D.api, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(p) })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return r.ok && j.ok; }); })
         .catch(function () { return false; })
