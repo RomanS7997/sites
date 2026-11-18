@@ -108,6 +108,9 @@
 @media (max-width:420px){.field-row{grid-template-columns:minmax(0,1fr);gap:0}}
 
 .logo-main{white-space:nowrap;font-size:1rem;}
+
+/* вкладки номеров на телефоне: переносятся на вторую строку, а не уходят за край (вторая вкладка обрезалась) */
+@media (max-width:759px){.tabs{flex-wrap:wrap;justify-content:center;overflow:visible;-webkit-mask:none;mask:none;margin-inline:0;padding:2px 0 6px}}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 <link rel="preload" as="image" href="../img/hero-1024.webp?v=3f5ae914" imagesrcset="../img/hero-800.webp?v=e76c812d 800w, ../img/hero-1024.webp?v=3f5ae914 1024w" imagesizes="(min-width: 960px) 40vw, 100vw">
