@@ -25,6 +25,9 @@
 <style>:root{ --wood:#f7f1e8;--wood-2:#f1e8db;--wood-3:#e6d9c6;--wood-rgb:247,241,232;--cream:#fffbf6;--cream-2:#f5eee4;--paper:#ffffff;--ink:#241c17;--ink-rgb:36,28,23;--muted:#6f6157;--muted-strong:#5e5148;--line:rgba(36,28,23,.12);--on-dark:#2a211b;--on-dark-muted:#6f6157;--on-dark-rgb:42,33,27;--on-dark-head:#221a15;--line-dark:rgba(42,33,27,.14);--gold:#a87a3c;--gold-hi:#93692f;--gold-rgb:168,122,60;--btn-ink:#fffaf3;--gold-deep:#8a6230;--glow-rgb:232,190,120;--glow2-rgb:222,180,160;--deep-rgb:138,98,48;--slat-rgb:120,90,60 }</style>
 <style>/* 23.11 Xuân Sơn (как у Peaceful House 22.11): золотой градиент заголовка t-mina обрезает верх вьетнамской диакритики — даём место сверху */
 .t-mina .hero-title em{padding-top:.14em;margin-top:-.14em;display:inline-block}
+/* 23.11: на узком телефоне (360) по-русски «Отправить запрос в WhatsApp» вылезал за края кнопки — разрешаем перенос */
+#f-submit{white-space:normal;text-align:center;line-height:1.3;padding-top:.55rem;padding-bottom:.55rem}
+@media (max-width:420px){#f-submit{padding-left:1.1rem;padding-right:1.1rem;letter-spacing:.1em}}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 <link rel="preload" as="image" href="../img/hero-1280.webp?v=44646ead" imagesrcset="../img/hero-800.webp?v=f5b1cd97 800w, ../img/hero-1280.webp?v=44646ead 1280w" imagesizes="(min-width: 960px) 40vw, 100vw">
